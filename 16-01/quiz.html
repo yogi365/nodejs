@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p >Score: <span id="score">0</span></p>
+    <div class="question-container">
+        <p id="question"></p>
+    </div>
+    <div class="options-container">
+        <ul id="options">
+        </ul>
+    </div>
+    <div class="control-container">
+        <button id="prev">Prev</button>
+        <button id="next">Next</button>
+        <button id="submit">Submit</button>
+    </div>
+    <script>
+        const data = [
+        {
+            "question":"1. Javascript is an _______ language?",
+            "options":["Object-Oriented","Object-base","Procedural","None of the above"],
+            "correct":'b'
+
+        },{
+            "question":"2. Javascript is an _______ language?",
+            "options":["Object-Oriented","Object-base","Procedural","None of the above"],
+            "correct":'b'
+        },{
+            "question":"3. Javascript is an _______ language?",
+            "options":["Object-Oriented","Object-base","Procedural","None of the above"],
+            "correct":'b'
+        },{
+            "question":"4. Javascript is an _______ language?",
+            "options":["Object-Oriented","Object-base","Procedural","None of the above"],
+            "correct":'b'
+        }
+    ]
+
+    var questionIndex = 0;
+    var score = 0;
+    function loadQuestion(){        
+        var optionsUl = document.querySelector('#options');
+
+        document.querySelector('#question').innerText = data[questionIndex].question;
+        var char = ['a','b','c','d'];    
+        optionsUl.innerHTML='';    
+
+        data[questionIndex].options.forEach((ele,index)=>{
+            const li = document.createElement('li');
+            const checkBox = document.createElement('input');
+            checkBox.type='radio';
+            checkBox.name='options'
+            checkBox.value=char[index];
+            const label = document.createElement('label');
+            label.innerText = ele;
+            li.append(checkBox,label);
+            optionsUl.append(li);            
+        })        
+    }
+
+    document.onload = loadQuestion();
+
+    document.querySelector('#prev').addEventListener('click',()=>{    
+        if(questionIndex<1){            
+            return false;
+        }
+        questionIndex--;
+        loadQuestion();
+    })
+
+    document.querySelector('#next').addEventListener('click',()=>{
+       
+        questionIndex++;
+        if(questionIndex>data.length-1){
+            return false;
+        }
+        const li = document.querySelectorAll('#options li input');        
+        for(let i=0;i<li.length;i++){
+            console.log(li[i].checked)
+            if(li[i].checked){
+                console.log(data[questionIndex].correct);
+                console.log(li[i].value)
+                if(li[i].value==data[questionIndex-1].correct){
+                    score++; 
+                    document.querySelector('#score').innerText = score;                   
+                }
+            }
+        }
+        loadQuestion();
+        
+    })
+    </script>
+    
+</body>
+</html>

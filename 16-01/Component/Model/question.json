@@ -1,0 +1,22 @@
+{
+    "data":[
+        {
+            "question":"Javascript is an _______ language?",
+            "options":["Object-Oriented","Object-base","Procedural","None of the above"],
+            "correct":1
+
+        },{
+            "question":"Javascript is an _______ language?",
+            "options":["Object-Oriented","Object-base","Procedural","None of the above"],
+            "correct":1
+        },{
+            "question":"Javascript is an _______ language?",
+            "options":["Object-Oriented","Object-base","Procedural","None of the above"],
+            "correct":1
+        },{
+            "question":"Javascript is an _______ language?",
+            "options":["Object-Oriented","Object-base","Procedural","None of the above"],
+            "correct":1
+        }
+    ]
+}
