@@ -14,7 +14,7 @@ http.createServer((req,res)=>{
         res.statusCode=200;
         res.statusMessage = 'Ok';
         let data = fs.readFileSync('./products.json','utf-8');
-        let a = await fetchData();
+        
         res.write(data);
         res.end();
     }

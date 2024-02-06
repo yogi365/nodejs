@@ -6,21 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="get" action="http://localhost:3030/product">
+    <!-- <form method="get" action="http://localhost:3030/product">
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="fname"><br>
         <label for="lname">Last name:</label><br>
         <input type="text" id="lname" name="lname">
         <input type="submit" value="Submit"/>
-      </form>
+      </form> -->
     <script>
-        // async function fetchData(){
-        //     const res = await fetch('http://localhost:3030/product');
-        //     const data = await res.json();
-        //     console.log(data);
-        // }
+        async function fetchData(){
+            const res = await fetch('http://localhost:3030/product');
+            const data = await res.json();
+            console.log(data);
+        }
 
-        // fetchData();
+        fetchData();
     </script>
     
 </body>
