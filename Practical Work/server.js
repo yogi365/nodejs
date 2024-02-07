@@ -12,12 +12,12 @@ http.createServer((req,res)=>{
 
     if(path.pathname=='/product'){     
         
-        res.statusCode=200;
+        res.statusCode=202;
         res.statusMessage = 'Ok';
         let data = fs.readFileSync('./products.json','utf-8'); 
         let products = JSON.parse(data);
         let result = products.filter(product=>{
-            return product.name == path.query.name
+            return product.name.toUpperCase() == path.query.name.toUpperCase()
         })            
         res.write(JSON.stringify(result));
         res.end();
