@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="search"/>
+    <input type="button" id="btn" value="search"/>
+    <script>
+        document.querySelector('#btn').addEventListener('click',fetchData);
+        async function fetchData(){
+            let bodyData = {roll:document.querySelector('#search').value};
+            let response = await fetch('http://localhost:8080/demo.json',{
+                method:'POST',
+                "Content-Type":"text/plain",
+                body:JSON.stringify(bodyData)
+            });
+            let data = await response.json();
+            console.log(data);
+        }
+
+
+    </script>
+</body>
+</html>

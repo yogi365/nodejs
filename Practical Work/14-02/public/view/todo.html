@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="task"/>
+        <input type="button" id="btn" value="addTask"/>
+    </div>
+    <script>
+        document.querySelector('#btn').addEventListener('click', async()=>{
+            const task = document.querySelector('#task').value.trim();
+            const response = await fetch('http://localhost:4040/addTask',{
+                method:'POST',
+                'Content-Type':'text/plain',
+                body:JSON.stringify({'task':task})
+            });
+            const data = response.json();
+            console.log(data);
+        })
+    </script>
+</body>
+</html>
