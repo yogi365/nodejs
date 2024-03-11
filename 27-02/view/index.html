@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="http://localhost:8080/url" method="get">
+        <input type="text" name="search"/>
+        <input type="submit"/>
+    </form>
+
+    <script>
+        // async function fetchData(){
+        //     let response = await fetch('http://localhost:8080/demo',{
+        //         method:'POST',
+        //         headers:{
+        //                 'Content-Type':'application/json',
+        //                 'Access-Control-Allow-Origin':'*',
+        //                 'Access-Control-Allow-Methods':'GET, POST, OPTIONS'
+        //                 },
+        //         body:JSON.stringify({'message':'message from client'})
+        //     });
+        //     let data = await response.json();
+        //     console.log(data);
+        // }
+
+        fetchData();
+    </script>
+</body>
+</html>

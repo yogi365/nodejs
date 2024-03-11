@@ -14,6 +14,7 @@ app.get('/',(req,res)=>{
 
 app.get('/url',(req,res)=>{
     console.log(req.body);
+    res.send('Hello')
 })
 
 app.get('/about',(req,res)=>{
