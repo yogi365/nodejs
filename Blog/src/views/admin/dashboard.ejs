@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Admin dashboard</h1>
+    <ul>
+        <li>Hi! <%=user.firstName%></li>
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="/article/add">Add Post</a>
+        </li>
+        <li>
+            <a href="/admin/addUser">Add User</a>
+        </li>
+    </ul>
+
+   
+    <div>
+        <h1>
+            Articles
+        </h1>
+        <table id="articleTable">            
+            <tbody>
+                <% article.forEach(article=>{%>
+                    <tr>
+                        <td><%=article.articleId%></td>
+                        <td><%=article.title%></td>
+                        <td><%=article.author%></td>
+                        <td><%=article.date%></td>
+                        <td><button onclick="deleteArticle(this, '<%= article.articleId %>')">Delete</button></td>
+                    </tr>
+                <%})%>
+            </tbody>
+        </table>
+        
+    </div>
+    <div>
+        <h1>User Details</h1>
+        <table>
+            <tbody>
+                <tr>
+                    <% users.forEach(user=>{%>
+                        <tr>
+                            <td><%=user.username%></td>
+                            <td><%=user.firstName%></td>
+                            <td><%=user.lastName%></td>
+                            <td><%=user.email%></td>
+                            <td><button onclick="deleteUser(this, '<%= user.userName %>')">Delete</button></td>
+                        </tr>
+                    <%})%>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        async function deleteArticle(e,id){           
+            const response = await fetch(`/article/delete/${id}`);
+            const data = JSON.parse(await response.json());            
+            if(data.message == 'ok'){
+                alert('Record deleted successfully');
+                const parentNode = e.parentNode.parentNode;
+                parentNode.remove();
+            }
+            else if(message.response=='error'){
+                alert('Something went wrong');
+            }
+        }
+
+        async function deleteUser(e,username){           
+            const response = await fetch(`/admin/deleteUser/${username}`);
+            const data = JSON.parse(await response.json());            
+            if(data.message == 'ok'){
+                alert('User deleted successfully');                
+                const parentNode = e.parentNode.parentNode;
+                parentNode.remove();
+            }
+            else if(message.response=='error'){
+                alert('Something went wrong');
+            }
+        }
+    </script>
+</body>
+</html>
