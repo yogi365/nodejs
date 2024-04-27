@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+        <% articles.forEach(article=>{%>
+            <div class="blog-card">
+                <img src="/images/<%= article.image %>" height="150px" width="120px"/>
+                <h4><a href="/post/<%=article.articleId%>"><%=article.articleId%></a></h4>
+                <p><%=article.article.slice(0,32)%>...</p>
+                <p><span><%=article.date%></span><span><%=article.author%></span></p>
+                <a href="/post/<%=article.articleId%>">Read More</a>
+            </div>
+        <%})%>
+        
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "firstName": "Terry",
+        "lastName": "Medhurst",
+        "maidenName": "Smitham",
+        "age": 50,
+        "gender": "male",
+        "email": "atuny0@sohu.com",
+        "phone": "+63 791 675 8914",
+        "username": "atuny0",
+        "password": "9uQFF1Lh",
+        "role": "admin"
+    },
+    {
+        "id": 2,
+        "firstName": "Sheldon",
+        "lastName": "Quigley",
+        "maidenName": "Cole",
+        "age": 28,
+        "gender": "male",
+        "email": "hbingley1@plala.or.jp",
+        "phone": "+7 813 117 7139",
+        "username": "hbingley1",
+        "password": "CQutx25i8r",
+        "role": "admin"
+    },
+    {
+        "id": 3,
+        "firstName": "Terrill",
+        "lastName": "Hills",
+        "maidenName": "Hoeger",
+        "age": 38,
+        "gender": "male",
+        "email": "rshawe2@51.la",
+        "phone": "+63 739 292 7942",
+        "username": "rshawe2",
+        "password": "OWsTbMUgFc",
+        "role": "author"
+    },
+    {
+        "id": 4,
+        "firstName": "Miles",
+        "lastName": "Cummerata",
+        "maidenName": "Maggio",
+        "age": 49,
+        "gender": "male",
+        "email": "yraigatt3@nature.com",
+        "phone": "+86 461 145 4186",
+        "username": "yraigatt3",
+        "password": "sRQxjPfdS",
+        "role": "author"
+    },
+    {
+        "id": 5,
+        "username": "dummy",
+        "firstName": "Dummy",
+        "lastName": "Name",
+        "email": "dummy@demo.com",
+        "password": "123",
+        "role": "admin"
+    },
+    {
+        "id": 6,
+        "username": "demo1",
+        "firstName": "Demo",
+        "lastName": "Name",
+        "email": "demo@demo.com",
+        "password": "123",
+        "role": "author"
+    }
+]
