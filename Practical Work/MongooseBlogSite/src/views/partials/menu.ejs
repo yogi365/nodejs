@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/styles/main.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.min.css"/>
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.min.js"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li>
+                <% if(users!==undefined && users.role== 'admin') {%>                    
+                    <li><a href="/admin/dashboard">Dashboard</a></li>
+                    <li><a href="/admin/addUser">Add User</a></li>                    
+                    <li> <a href="/article/add">Add Post</a></li>
+                <%} else if(users!==undefined && users.role== 'author'){%>
+                    <li><a href="/author/dashboard">Dashboard</a></li>                                    
+                    <li> <a href="/article/add">Add Post</a></li>
+                <%}%>
+            </li>
+        </ul>
+        <ul class="nav-right">
+            <% if(users!=undefined && users!== null) {%>
+                <li>Welcome <%=users.firstName%></li>
+                <li><a href="/logout">logout</a></li>
+            <%} else{%>
+                <li><a href="/login">login</a></li>
+            <%}%>
+        </ul>
+            
+        
+    </nav>
+</header>

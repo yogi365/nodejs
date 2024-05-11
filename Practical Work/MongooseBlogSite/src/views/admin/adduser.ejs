@@ -1,0 +1,21 @@
+
+    <%- include('../partials/menu.ejs')%>  
+    
+    <div class="container">
+        <h2 align="center">Add New User</h2>
+        <form action="/admin/addUser" method="post">
+            <input type="text" name="firstName" placeholder="First Name"/>
+            <input type="text" name="lastName" placeholder="Last Name"/>
+            <input type="text" name="username" placeholder="User Name"/>
+            <input type="email" name="email" placeholder="Email"/>
+            <input type="password" name="password" placeholder="Password"/>
+            <select name="role">
+                <option value="author">Author</option>
+                <option value="admin">Admin</option>
+            </select>
+            <input class="btn" type="submit"/>
+           
+        </form>
+    </div>
+</body>
+</html>

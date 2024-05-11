@@ -1,0 +1,49 @@
+
+    <%- include('../partials/menu.ejs')%>  
+
+    <div class="container">
+        <h3>
+            Articles
+        </h3>
+        <table id="articleTable">   
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Date</th>                   
+                    <th></th>
+                </tr>
+            </thead>                
+            <tbody>
+                <% articles.forEach(article=>{%>
+                    <tr>                        
+                        <td><%=article.title%></td>
+                        <td><%=article.author%></td>
+                        <td><%=article.date.toLocaleDateString('en-us',{year: 'numeric', month: 'long', day: 'numeric'})%></td>
+                        <td><i class="fa fa-trash" style="cursor:pointer;" onclick="deleteArticle(this, '<%= article._id %>')"></i></td>
+                    </tr>
+                <%})%>
+                
+            </tbody>
+        </table>
+        
+    </div>
+
+    <script>
+        let articleTable = new DataTable('#articleTable');
+        async function deleteArticle(e,id){           
+            const response = await fetch(`/article/delete/${id}`);
+            const data = JSON.parse(await response.json());            
+            if(data.message == 'ok'){
+                alert('Record deleted successfully');
+                const parentNode = e.parentNode.parentNode;
+                parentNode.remove();
+            }
+            else if(message.response=='error'){
+                alert('Something went wrong');
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+    <%- include('../partials/menu.ejs')%>  
+    <div class="container">
+              
+       <div class="blog-container">
+        <% articles.forEach(article=>{%>
+            <div class="blog-card">
+                <img src="/images/<%= article.image %>" height="150px" width="120px"/>
+                <h3><a href="/post/<%=article._id%>"><%=article.title%></a></h3>                
+                <div class="article"><%=article.article.slice(0,30).replace(/<[^>]*>/g, '')%>...</div>              
+                <p><span><%=article.date.toLocaleDateString('en-us')%></span><span class="author-name"><%=article.author%></span></p>
+                <a class="btn" href="/post/<%=article._id%>">Read More</a>
+            </div>
+        <%})%>
+       </div>
+        
+    </div>
+
+
+</body>
+</html>

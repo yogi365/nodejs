@@ -1,0 +1,35 @@
+<%- include('../partials/menu.ejs')%>
+    <script src="https://cdn.tiny.cloud/1/ge6axm1074dkdmeptegncrg5c6eorvxmhzgbv4kel0yklt4f/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <div class="container">
+        <div class="article-container">
+            <h2>Add New Post</h2>
+
+            <form action="/article/add" method="post" enctype="multipart/form-data">
+                <%if(typeof message!='undefined' && message!=null){%>
+                    <p class="message">
+                        <%= message%>
+                    </p>
+                    <%}%>
+                        <label>Title</label>
+                        <input type="text" name="title" />
+                        <label>Post</label>
+                        <textarea id="articleEditor" name="article"></textarea>
+                        <label>Title Image</label>
+                        <input type="file" name="image" />
+                        <input class="btn" type="submit" />
+            </form>
+        </div>
+    </div>
+
+
+
+    <script>
+        tinymce.init({
+            selector: '#articleEditor',
+            menubar: false
+        });
+    </script>
+    </body>
+
+    </html>

@@ -1,0 +1,96 @@
+
+<%- include('../partials/menu.ejs')%>  
+
+   <div class="container">  
+    <div>
+        <h3>
+            Articles
+        </h3>
+        <table id="articleTable">  
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Date</th>                   
+                    <th></th>
+                </tr>
+            </thead>          
+            <tbody>
+                <% article.forEach(article=>{%>
+                    <tr>                        
+                        <td><%=article.title%></td>
+                        <td><%=article.author%></td>
+                        <td><%=article.date.toLocaleDateString('en-us',{year: 'numeric', month: 'long', day: 'numeric'})%></td>
+                        <td><i class="fa fa-trash" style="cursor:pointer;" onclick="deleteArticle(this, '<%= article._id %>')"></i></td>
+                    </tr>
+                <%})%>
+            </tbody>
+        </table>
+        
+    </div>
+    <div>
+        <h3>User Details</h3>
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <% userDetails.forEach(user=>{%>
+                        <tr>
+                            <td><%=user.username%></td>
+                            <td><%=user.firstName%></td>
+                            <td><%=user.lastName%></td>
+                            <td><%=user.email%></td>
+                            <td><%=user.role%></td>
+                            <td><i class="fa fa-trash" style="cursor:pointer;" onclick="deleteUser(this, '<%= user.username %>')"></i></td>
+                        </tr>
+                    <%})%>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   </div>
+
+    <script>
+
+        let articleTable = new DataTable('#articleTable');
+        let userTable = new DataTable('#userTable');
+
+        async function deleteArticle(e,id){           
+            const response = await fetch(`/article/delete/${id}`);
+            const data = JSON.parse(await response.json());            
+            if(data.message == 'ok'){
+                alert('Record deleted successfully');
+                const parentNode = e.parentNode.parentNode;
+                parentNode.remove();
+            }
+            else{
+                console.log(data.message)    
+            }
+        }
+
+        async function deleteUser(e,username){           
+            const response = await fetch(`/admin/deleteUser/${username}`);
+            console.log(username)
+            const data = JSON.parse(await response.json());      
+            console.log(data);      
+            if(data.message == 'ok'){
+                alert('User deleted successfully');                
+                const parentNode = e.parentNode.parentNode;
+                parentNode.remove();
+            }
+            else if(message.response=='error'){
+                alert('Something went wrong');
+            }
+        }
+    </script>
+</body>
+</html>

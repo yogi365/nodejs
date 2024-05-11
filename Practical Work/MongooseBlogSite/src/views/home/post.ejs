@@ -1,0 +1,17 @@
+
+    <%- include('../partials/menu.ejs')%>  
+    
+    <div class="container post-container">
+        <h2><%=post.title%></h2>
+        <img src="/images/<%= post.image %>" height="150px" width="120px"/>
+        <ul>
+            <li><i class="fa fa-clock-o"></i> <strong><%=post.date.toLocaleDateString('en-us',{year: 'numeric', month: 'long', day: 'numeric'})%></strong></li>       
+            <li><i class="fa fa-user"></i> <strong><%=post.author%></strong></li>
+        </ul>
+        <div>
+            <%-post.article%>
+        </div>
+         
+    </div>
+</body>
+</html>
