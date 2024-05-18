@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="add" method="get">
+       <input type="text" name="username">
+       <input type="submit">
+    </form>
+
+    <form action="add" method="post">
+        <input type="text" name="username">
+        <input type="submit">
+     </form>
+
+     <script>
+         fetch("/add").then((res)=>{
+            return res.text();
+        }).then((data)=>{
+            console.log(data);
+        }).catch((e)=>{
+            console.log(e);
+        })
+
+        fetch("/add?name=abc").then((res)=>{
+            return res.text();
+        }).then((data)=>{
+            console.log(data);
+        }).catch((e)=>{
+            console.log(e);
+        })
+
+
+        fetch("/add",{
+            method:"POST",
+            body:JSON.stringify({
+                name:"cdf"
+            }),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }).then((res)=>{
+            return res.text();
+        }).then((data)=>{
+            console.log(data);
+        }).catch((e)=>{
+            console.log(e);
+        })
+
+     </script>
+</body>
+</html>

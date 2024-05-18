@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+EJS dashboard page
+<%- include("header.ejs") %>
+<h2>welcome <%=name%></h2>
+<ul>
+    <%arr.forEach((element)=>{%>
+        <div id="<%=element.id%>">
+        <img src="<%=element.image%>">
+        <h2><%=element.name%></h2>
+        <h3><%=element.price%></h3>
+        <h4><%=element.desc%></h4>
+    </div>
+    <%})%>
+</ul>
+<%- include("footer.ejs") %>
+<script>
+    alert("helo world");
+</script>
+</body>
+</html>

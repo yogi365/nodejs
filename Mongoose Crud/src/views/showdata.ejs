@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tbody>
+            <%empData.forEach(emp=>{%>
+                <tr>
+                    <td><%=emp.id%></td>
+                    <td><img width="100px" height="100px" src="images/<%=emp.profilePic%>"></td>
+                    <td><%=emp.firstName%></td>
+                    <td><%=emp.lastName%></td>
+                    <td><%=emp.email%></td>
+                    <td><%=emp.dob.toLocaleDateString('en-us',{month:'long', day:'numeric',year:'numeric'})%></td>
+                    <td><%=emp.address%></td>     
+                    <td><a href="/editData/<%=emp.id%>">Edit</td>     
+                    <td><a href="/deleteData/<%=emp.id%>">Delete</a></td>          
+                </tr>
+            <%})%>
+        </tbody>
+    </table>
+</body>
+</html>

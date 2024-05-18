@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/emp/update" method="post" enctype="multipart/form-data">
+        <input type="text" name="firstName" placeholder="First Name" value="{<%empData.firstName%>}"/><br><br>
+        <input type="text" name="lastName" placeholder="Last Name" value="{<%empData.lastName%>}"/><br><br>
+        <input type="email" name="email" placeholder="Email" value="{<%empData.email%>}"/><br><br>
+        <input type="number" name="contactNumber" placeholder="Contact Number" value="{<%empData.contactNumber%>}"/><br><br>
+        <input type="date" name="dob" value="{<%empData.dob%>}"><br><br>
+        <input type="number" name="salary" placeholder="Current Salary" value="{<%empData.salary%>}"/><br><br>
+        <textarea name="address"><%empData.address%></textarea><br><br>
+        <div id="image-container">
+            <img id="displayed-image" src="<%= imageUrl %>" alt="Image" style="cursor:pointer;">
+            <div id="upload-container" class="hidden">
+              <label for="image-upload" id="file-label">Choose a file</label>
+              <input type="file" name="profilePic"/>
+              <input type="file" id="image-upload" style="display: none;">
+              <button id="cancel-button">Cancel</button>
+            </div>
+          </div>
+        
+        <input type="submit"/>
+    </form>
+</body>
+</html>

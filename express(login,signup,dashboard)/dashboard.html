@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to Dashboard Page</h1>
+    <div id="main">
+
+    </div>
+    <script>
+
+
+
+const main=document.getElementById("main");
+        function showData(arr){
+            arr.forEach(element => {
+                var div=document.createElement("div");
+                div.setAttribute("id",element.id);
+                var img=document.createElement("img");
+                img.setAttribute("src",element.image);
+                img.setAttribute("onclick","desc()");
+                var p=document.createElement("p");
+                p.innerHTML=element.name;
+                var p1=document.createElement("p");
+                p1.innerHTML=element.price;
+                div.appendChild(img);
+                div.appendChild(p);
+                div.appendChild(p1);
+                main.appendChild(div);
+            });
+        }
+
+        fetch("/getAllProduct").then((res)=>{
+            return res.json();
+        }).then((data)=>{
+            showData(data);
+        }).catch((e)=>{
+            console.log(e);
+        })
+
+        function desc(){
+            console.log("done");
+           let id=event.target.parentElement.id;
+           fetch(`/showdesc/${id}`).then((res)=>{
+            return res.text();
+           }).then((data)=>{
+            alert(data);
+           }).catch((e)=>{
+            console.log(e);
+           })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+[
+    {
+        "name": "samsung",
+        "price": 20000,
+        "desc": "samsung",
+        "image": "",
+        "id": 1
+    },
+    {
+        "name": "abc",
+        "price": 20000,
+        "desc": "abc",
+        "image": "",
+        "id": 2
+    },
+    {
+        "name": "abc",
+        "price": 20000,
+        "desc": "abc",
+        "image": "",
+        "id": 2
+    },
+    {
+        "name": "abc",
+        "price": 20000,
+        "desc": "abc",
+        "image": "",
+        "id": 2
+    },
+    {
+        "name": "abc",
+        "price": 20000,
+        "desc": "abc",
+        "image": "",
+        "id": 2
+    }
+]
